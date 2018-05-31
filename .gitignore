@@ -1,0 +1,4 @@
+/logs
+/.data
+.env
+.idea/docker-for-symfony.iml
