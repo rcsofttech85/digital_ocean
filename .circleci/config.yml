@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/digital_ocean
     docker:
-      - image: circleci/prorahul/symfony:latest
+      - image: prorahul/symfony:latest
         environment:
           MAX_EXECUTION_TIME: 60
 
