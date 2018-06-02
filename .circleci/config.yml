@@ -6,6 +6,21 @@ jobs:
       - image: prorahul/symfony:latest
         environment:
           MAX_EXECUTION_TIME: 60
+      - image: php:7.2-fpm
+        environment:
+          TIME_ZONE: Asia/Kolkata
+      - image: prorahul/symfony:php:latest
+        environment:
+          APP_ENV: test
+          DATABASE_URL: mysql://symfony:symfony@127.0.0.1/symfony
+      - image: mysql:5.7
+        environment:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: symfony
+          MYSQL_USER: symfony
+          MYSQL_PASSWORD: symfony
+      - image: redis:latest
+      - image: debian:jessie
 
     steps:
       - checkout
