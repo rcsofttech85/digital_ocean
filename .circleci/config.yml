@@ -4,25 +4,10 @@ jobs:
     working_directory: ~/digital_ocean
     docker:
       - image: prorahul/symfony:latest
-        environment:
-          MAX_EXECUTION_TIME: 60
-      - image: prorahul/symfony:php
-        environment:
-          TIME_ZONE: Asia/Kolkata
-          APP_ENV: test
-          DATABASE_URL: mysql://symfony:symfony@127.0.0.1/symfony
-      - image: mysql:5.7
-        environment:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: symfony
-          MYSQL_USER: symfony
-          MYSQL_PASSWORD: symfony
-      - image: redis:latest
-
 
     steps:
       - checkout
       - run:
-          name: Composer install
-          command: composer install -n --prefer-dist
+          name: Hello world
+          command: echo "hello world"
 
