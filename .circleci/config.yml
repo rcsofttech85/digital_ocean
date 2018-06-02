@@ -18,14 +18,11 @@ jobs:
           MYSQL_USER: symfony
           MYSQL_PASSWORD: symfony
       - image: redis:latest
-      - image: debian:jessie
+
 
     steps:
       - checkout
       - run:
           name: Composer install
-          command: composer install -n --prefer-dist
-      - run:
-          name: Run migrations
-          command: php bin/console doctrine:migrations:migrate --env=test --no-interaction
+          command: composer --version
 
