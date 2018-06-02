@@ -8,6 +8,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Hello world
-          command: echo "hello world"
+          name: check git version
+          command: git --version
 
