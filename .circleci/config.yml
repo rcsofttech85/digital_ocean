@@ -9,7 +9,7 @@ jobs:
       - image: php:7.2-fpm
         environment:
           TIME_ZONE: Asia/Kolkata
-      - image: prorahul/symfony:php:latest
+      - image: prorahul/symfony:php
         environment:
           APP_ENV: test
           DATABASE_URL: mysql://symfony:symfony@127.0.0.1/symfony
