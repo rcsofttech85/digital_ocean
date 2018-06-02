@@ -4,6 +4,7 @@ jobs:
     working_directory: ~/digital_ocean
     docker:
       - image: prorahul/symfony:latest
+      - image: prorahul/symfony:php
 
     steps:
       - checkout
