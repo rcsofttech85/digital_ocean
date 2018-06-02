@@ -7,5 +7,6 @@ jobs:
         environment:
           MAX_EXECUTION_TIME: 60
 
-
+    steps:
+      - checkout
 
