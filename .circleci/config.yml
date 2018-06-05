@@ -4,10 +4,14 @@ jobs:
     working_directory: ~/digital_ocean
     docker:
      - image: prorahul/symfony:php
+     - image: prorahul/symfony:nginx
 
     steps:
       - checkout
       - run:
           name: check git version
           command: git --version
+      -run;
+          name: check nginx version
+          command: nginx -v
 
