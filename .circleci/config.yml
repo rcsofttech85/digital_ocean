@@ -5,6 +5,11 @@ jobs:
     docker:
     - image: prorahul/symfony:nginx
     - image: mysql:5.7
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: symfony
+        MYSQL_USER: symfony
+        MYSQL_PASSWORD: symfony
 
     steps:
       - checkout
