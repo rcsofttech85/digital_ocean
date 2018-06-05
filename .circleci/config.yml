@@ -4,6 +4,13 @@ jobs:
     working_directory: ~/digital_ocean
     docker:
     - image: prorahul/symfony:nginx
+      environment:
+      MAX_EXECUTION_TIME: 60
+
+    - image: prorahul/symfony:php
+      environment:
+        TIMEZONE: Asia/Kolkata
+
     - image: mysql:5.7
       environment:
         MYSQL_ROOT_PASSWORD: root
