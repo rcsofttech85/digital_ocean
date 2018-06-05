@@ -4,8 +4,7 @@ jobs:
     working_directory: ~/digital_ocean
     docker:
     - image: prorahul/symfony:nginx
-      environment:
-      MAX_EXECUTION_TIME: 60
+
 
     - image: prorahul/symfony:php
       environment:
