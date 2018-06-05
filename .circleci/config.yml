@@ -3,8 +3,8 @@ jobs:
   build:
     working_directory: ~/digital_ocean
     docker:
-     - image: prorahul/symfony:php
-     - image: prorahul/symfony:nginx
+    - image: prorahul/symfony:nginx
+    - image: prorahul/symfony:php
 
     steps:
       - checkout
