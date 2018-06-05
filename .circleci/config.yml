@@ -8,9 +8,7 @@ jobs:
 
     steps:
       - checkout
-      - run:
-          name: check git version
-          command: git --version
+
       - run:
           name: check nginx version
           command: nginx -v
