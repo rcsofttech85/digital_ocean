@@ -3,12 +3,11 @@ jobs:
   build:
     working_directory: ~/digital_ocean
     docker:
-    - image: prorahul/symfony:nginx
-
-
     - image: prorahul/symfony:php
       environment:
         TIMEZONE: Asia/Kolkata
+
+    - image: prorahul/symfony:nginx
 
     - image: mysql:5.7
       environment:
