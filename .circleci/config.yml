@@ -24,3 +24,7 @@ jobs:
           name: check nginx version
           command: nginx -v
 
+      - run:
+          name: check git version
+          command: git --version
+
