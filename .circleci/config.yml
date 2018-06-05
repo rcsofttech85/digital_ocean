@@ -5,9 +5,7 @@ jobs:
     docker:
     - image: prorahul/symfony:nginx
 
-    - image: prorahul/symfony:php
-      environment:
-        TIMEZONE: Asia/Kolkata
+
 
     - image: mysql:5.7
       environment:
