@@ -1,18 +1,14 @@
-version: 2
-jobs:
-  build:
-    working_directory: ~/digital_ocean
-    steps:
-      - checkout
-      - run:
-          name: check docker-compose version
-          command: docker-compose --version
-      - run:
-          name: install docker-compose
-          command: |
-            curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
-            chmod +x ~/docker-compose
-            sudo mv ~/docker-compose /usr/local/bin/docker-compose
+machine:
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - pip install docker-compose
+
+test:
+  pre:
+   - docker-compose --version
 
 
 
