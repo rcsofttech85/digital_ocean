@@ -16,7 +16,17 @@ jobs:
     steps:
       - checkout
       - run:
-          name: check git version
-          command: git --version
+          name: install nginx
+          command: apt-get update && apt-get install -y nginx
+
+      - run:
+          name: add conf file
+          command: cp nginx.conf /etc/nginx/
+
+      - run:
+          name: add symfony conf
+          command: cp symfony.conf /etc/nginx/sites-available/
+
+
 
 
