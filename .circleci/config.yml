@@ -4,8 +4,6 @@ jobs:
     working_directory: ~/digital_ocean
     docker:
 
-    - image: nginx
-
     - image: prorahul/symfony:php
 
     - image: mysql:5.7
@@ -17,11 +15,6 @@ jobs:
 
     steps:
       - checkout
-
-      - run:
-          name: check nginx version
-          command: nginx -v
-
       - run:
           name: check git version
           command: git --version
