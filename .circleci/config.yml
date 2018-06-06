@@ -6,7 +6,7 @@ jobs:
 
     - image: nginx
 
-    -image: prorahu/symfony:php
+    - image: prorahu/symfony:php
 
     - image: mysql:5.7
       environment:
