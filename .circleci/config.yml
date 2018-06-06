@@ -20,26 +20,20 @@ jobs:
              pip install \
              docker-compose==1.18.0
 
-      - run:
-          name: check docker compose version
-          command: docker-compose --version
+
 
       - run:
           name: Run container
           command: |
-             APP_ENV=test docker-compose -f ./docker-compose.yml up -d --build
+              docker-compose -f ./docker-compose.yml up -d --build
 
-      - run:
-         name: check env
-         command: echo $APP_ENV
+
 
       - run:
          name: check git version
          command: git --version
 
-      - run:
-         name: check composer version
-         command: composer --version
+
 
 
 
