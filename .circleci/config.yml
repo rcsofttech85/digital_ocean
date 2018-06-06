@@ -4,19 +4,18 @@ jobs:
     working_directory: /app
     docker:
       - image: docker:17.05.0-ce-git
-      - image: ubuntu
+
     steps:
       - checkout
       - setup_remote_docker
-      - run:
-          name: install curl
-          command: apt-get update && apt-get install -y curl
+
       - run:
           name: Install Docker Compose
           command: |
-            curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
-            chmod +x ~/docker-compose
-            sudo mv ~/docker-compose /usr/local/bin/docker-compose
+             apk add --no-cache \
+             py-pip=9.0.0-r1
+             pip install \
+             docker-compose==1.18.0
 
       - run:
           name: check docker compose version
