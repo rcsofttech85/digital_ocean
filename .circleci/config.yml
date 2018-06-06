@@ -30,4 +30,8 @@ jobs:
 
       - run:
          name: check env
-         command: echo $APP_ENV
+         command: echo $APP_EN
+
+      - run:
+         name: check git version
+         command: git --version
