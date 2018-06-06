@@ -4,6 +4,23 @@ jobs:
     working_directory: /var/www/symfony
     docker:
       - image: docker:17.05.0-ce-git
+    environment:
+    # Symfony application's path (absolute or relative)
+    SYMFONY_APP_PATH: ./symfony
+
+    # PHP/nginx
+    TIMEZONE: Asia/Kolkata
+    MAX_EXECUTION_TIME: 60
+
+    # MySQL
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: symfony
+    MYSQL_USER: symfony
+    MYSQL_PASSWORD: symfony
+
+    # RabbitMQ
+    RABBITMQ_USER: rabbit
+    RABBITMQ_PASSWORD: mq
 
 
     steps:
