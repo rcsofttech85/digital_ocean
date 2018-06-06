@@ -21,11 +21,11 @@ jobs:
 
       - run:
           name: add conf file
-          command: cp nginx.conf /etc/nginx/
+          command: cp nginx/nginx.conf /etc/nginx/
 
       - run:
           name: add symfony conf
-          command: cp symfony.conf /etc/nginx/sites-available/
+          command: cp nginx/symfony.conf /etc/nginx/sites-available/
 
 
 
