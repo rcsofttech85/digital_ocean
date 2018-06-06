@@ -26,6 +26,6 @@ jobs:
       - run:
           name: Run container
           command: |
-          SYMFONY_APP_PATH=./symfony TIMEZONE=Asia/Kolkata MAX_EXECUTION_TIME=60 MYSQL_ROOT_PASSWORD=root
-          MYSQL_DATABASE=symfony  MYSQL_USER=symfony MYSQL_PASSWORD=symfony RABBITMQ_USER=rabbit RABBITMQ_PASSWORD=mq
+          SYMFONY_APP_PATH=./symfony TIMEZONE=Asia/Kolkata MAX_EXECUTION_TIME=60 MYSQL_ROOT_PASSWORD=root \
+          MYSQL_DATABASE=symfony  MYSQL_USER=symfony MYSQL_PASSWORD=symfony RABBITMQ_USER=rabbit RABBITMQ_PASSWORD=mq \
           docker-compose -f ./docker-compose.yml up -d --build
