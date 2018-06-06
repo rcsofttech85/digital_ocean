@@ -20,3 +20,8 @@ jobs:
       - run:
           name: check docker compose version
           command: docker-compose --version
+
+      - run:
+          name: Run container
+          command: |
+            docker-compose -f ./docker-compose.yml up -d --build
