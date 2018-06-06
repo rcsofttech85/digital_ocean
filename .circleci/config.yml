@@ -1,9 +1,10 @@
 version: 2
 jobs:
   build:
-    working_directory: /app
+    working_directory: /var/www/symfony
     docker:
       - image: docker:17.05.0-ce-git
+
 
     steps:
       - checkout
