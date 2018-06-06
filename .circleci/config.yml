@@ -3,9 +3,8 @@ jobs:
   build:
     working_directory: ~/digital_ocean
     docker:
+
     - image: nginx
-
-
 
     - image: mysql:5.7
       environment:
