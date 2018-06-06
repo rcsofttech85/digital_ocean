@@ -32,7 +32,7 @@ jobs:
       - run:
          name: install composer
 
-      -run:
+      - run:
          name: composer version
          command:
              php /usr/local/bin/composer --version
