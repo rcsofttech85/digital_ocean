@@ -37,7 +37,5 @@ jobs:
          name: check git version
          command: git --version
 
-      - run:
-         name: check composer
-         command: composer --version
+
 
