@@ -26,4 +26,12 @@ jobs:
       - run:
           name: Run container
           command: |
-             docker-compose -f ./docker-compose.yml up -d --build
+             APP_ENV=test docker-compose -f ./docker-compose.yml up -d --build
+
+      - run:
+         name: composer install
+         command: composer install -n --prefer-dist
+
+      - run:
+          name: Run migrations
+          command: php bin/console doctrine:migrations:migrate --env=test --no-interaction
