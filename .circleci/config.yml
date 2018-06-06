@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/digital_ocean
     docker:
-    - image: prorahul/symfony:nginx
+    - image: nginx
 
 
 
@@ -21,7 +21,5 @@ jobs:
           name: check nginx version
           command: nginx -v
 
-      - run:
-          name: check git version
-          command: git --version
+
 
