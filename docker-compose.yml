@@ -2,8 +2,6 @@ version: '2'
 
 services:
     db:
-        env_file:
-          - .env.test
         container_name: container_mysql
         image: mysql
         volumes:
@@ -16,8 +14,6 @@ services:
         ports:
             - "3306:3306"
     redis:
-        env_file:
-          - .env.test
         container_name: container_redis
         image: redis
         ports:
@@ -25,8 +21,6 @@ services:
         volumes:
           - "./volumes/redis:/data"
     php:
-        env_file:
-          - .env.test
         container_name: container_phpfpm
         build:
             context: php7-fpm
@@ -37,8 +31,6 @@ services:
         links:
             - redis
     nginx:
-        env_file:
-          - .env.test
         container_name: container_nginx
         build:
             context: nginx
@@ -53,8 +45,6 @@ services:
             - ./logs/nginx/:/var/log/nginx
 
     phpmyadmin:
-        env_file:
-          - .env.test
         container_name: container_phpmyadmin
         image: phpmyadmin/phpmyadmin
         ports:
