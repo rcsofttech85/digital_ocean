@@ -34,7 +34,8 @@ jobs:
 
       -run:
          name: composer version
-         command: php /usr/local/bin/composer --version
+         command:
+             php /usr/local/bin/composer --version
 
 
 
