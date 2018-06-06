@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/digital_ocean
+    docker:
+
+    - image: nginx
+
+    - image: mysql:5.7
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: symfony
+        MYSQL_USER: symfony
+        MYSQL_PASSWORD: symfony
+
+    steps:
+      - checkout
+
+      - run:
+          name: check nginx version
+          command: nginx -v
+
+
+
