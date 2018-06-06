@@ -6,6 +6,8 @@ jobs:
 
     - image: nginx
 
+    -image: prorahu/symfony:php
+
     - image: mysql:5.7
       environment:
         MYSQL_ROOT_PASSWORD: root
@@ -20,5 +22,8 @@ jobs:
           name: check nginx version
           command: nginx -v
 
+      - run:
+          name: check git version
+          command: git --version
 
 
