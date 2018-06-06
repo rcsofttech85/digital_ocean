@@ -29,12 +29,11 @@ jobs:
          name: check git version
          command: git --version
 
-      - run:
-         name: install composer
+
 
       - run:
          name: composer version
-         command: ./composer --version
+         command: php /usr/local/bin/composer --version
 
 
 
