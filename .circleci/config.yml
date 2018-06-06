@@ -20,18 +20,21 @@ jobs:
              pip install \
              docker-compose==1.18.0
 
-
-
       - run:
           name: Run container
           command: |
               docker-compose -f ./docker-compose.yml up -d --build
 
-
-
       - run:
          name: check git version
          command: git --version
+
+      - run:
+         name: install composer
+
+      -run:
+         name: composer version
+         command: php /usr/local/bin/composer --version
 
 
 
