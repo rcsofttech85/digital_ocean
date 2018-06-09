@@ -41,7 +41,7 @@ jobs:
 
 
   deploy:
-    working_directory: ~/symfony
+    working_directory: ~/temp
     docker:
       - image: docker:17.05.0-ce-git
     steps:
@@ -101,8 +101,11 @@ jobs:
 
       - run:
          name: run migrations
-         command: docker exec -e DATABASE_URL=$DATABASE_URL container_phpfpm bin/console doctrine:migrations:migrate --no-interaction
+         command: docker exec -e DATABASE_URL=$DATABASE_URL  container_phpfpm bin/console doctrine:migrations:migrate --no-interaction
 
+      - run:
+         name: deploy code
+         command: rsync -vzcrSLhp --delete ~/temp/ $DROPLET_USER@DROPLET_IP:/var/www/symfony
 
 
 workflows:
