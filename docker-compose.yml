@@ -21,6 +21,8 @@ services:
         volumes:
           - "./volumes/redis:/data"
     php:
+        env_file:
+          - .env
         container_name: container_phpfpm
         build:
             context: php7-fpm
@@ -31,11 +33,15 @@ services:
         links:
             - redis
     nginx:
+        env_file:
+          - .env
         container_name: container_nginx
         build:
+
             context: nginx
             args:
                 MAX_EXECUTION_TIME: ${MAX_EXECUTION_TIME}
+
         ports:
             - "80:80"
             - "443:443"
