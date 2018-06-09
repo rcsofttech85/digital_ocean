@@ -31,11 +31,11 @@ jobs:
 
       - run:
          name: run php container
-         command: docker exec -it container_phpfpm bash
+         command: |
+            docker exec -it container_phpfpm bash
+            composer install -n --prefer-dist
 
-      - run:
-         name: run composer
-         command: composer install -n --prefer-dist
+
 
 
 
