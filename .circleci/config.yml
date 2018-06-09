@@ -33,6 +33,12 @@ jobs:
          name: run php container
          command: docker exec -it container_phpfpm bash
 
+      - run:
+         name: run composer
+         command: composer install -n --prefer-dist
+
+
+
 
 
 
