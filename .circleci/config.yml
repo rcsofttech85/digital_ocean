@@ -97,7 +97,7 @@ jobs:
 
       - run:
          name: run encore
-         command: yarn run encore production
+         command: docker exec container_phpfpm yarn run encore production
 
       - run:
          name: run migrations
