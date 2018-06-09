@@ -21,6 +21,8 @@ services:
         volumes:
           - "./volumes/redis:/data"
     php:
+        env_file:
+          - .env
         container_name: container_phpfpm
         build:
             context: php7-fpm
@@ -31,6 +33,8 @@ services:
         links:
             - redis
     nginx:
+        env_file:
+          - .env
         container_name: container_nginx
         build:
 
@@ -51,4 +55,4 @@ services:
         image: phpmyadmin/phpmyadmin
         ports:
             - "8080:80"
-
+    

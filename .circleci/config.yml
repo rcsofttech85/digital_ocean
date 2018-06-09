@@ -1,12 +1,9 @@
 version: 2
 jobs:
   build:
-    working_directory: /symfony
+    working_directory: ~/symfony
     docker:
       - image: docker:17.05.0-ce-git
-
-
-
     steps:
       - checkout
       - setup_remote_docker
@@ -23,7 +20,7 @@ jobs:
       - run:
           name: Run container
           command: |
-              docker-compose -f ./docker-compose.yml up -d --build
+              docker-compose -f ./docker-compose-test.yml up -d --build
 
       - run:
          name: mount volume
@@ -41,6 +38,66 @@ jobs:
       - run:
          name: Run Test
          command: docker exec container_phpfpm ./bin/phpunit
+
+
+  deploy:
+    working_directory: ~/symfony
+    docker:
+      - image: docker:17.05.0-ce-git
+    steps:
+      - checkout
+      - setup_remote_docker
+   # docker_layer_caching: true
+
+      - run:
+          name: Install Docker Compose
+          command: |
+             apk add --no-cache \
+             py-pip=9.0.0-r1
+             pip install \
+             docker-compose==1.18.0
+
+      - run:
+         name: add droplet
+         command: ssh-keyscan -H $DROPLET_IP >> ~/.ssh/known_hosts
+
+      - run:
+         name: add env variable
+         command: ssh -T $DROPLET_USER@$DROPLET_IP < bin/deploy/pre_deploy.sh
+
+      - run:
+          name: Run container
+          command: |
+              docker-compose -f ./docker-compose.yml up -d --build
+
+      - run:
+         name: mount volume
+         command: docker cp ./symfony container_phpfpm:/var/www/
+
+      - run:
+         name: install composer
+         command: |
+            docker exec container_phpfpm composer install -n --prefer-dist
+
+      - run:
+         name: clear cache
+         command: docker exec container_phpfpm bin/console cache:clear --env=prod --no-interaction
+
+      - run:
+         name: warmup cache
+         command: docker exec container_phpfpm bin/console cache:warmup --env=prod --no-interaction
+
+      - run:
+         name: yarn
+         command: docker exec container_phpfpm yarn install && yarn run encore production
+
+  workflows:
+    version: 2
+    build-and-deploy:
+      jobs:
+        - deploy
+
+
 
 
 
