@@ -34,6 +34,10 @@ jobs:
          command: |
             docker exec container_phpfpm composer install -n --prefer-dist
 
+      - run:
+          name: Run migrations
+          command: docker exec container_phpfpm bin/console doctrine:migrations:migrate --env=test --no-interaction
+
 
 
 
