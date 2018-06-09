@@ -30,8 +30,7 @@ jobs:
          command: git --version
       - run:
          name: install composer
-         command: RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
+         command: curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
       - run:
          name: composer install
