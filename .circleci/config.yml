@@ -88,8 +88,12 @@ jobs:
          command: docker exec container_phpfpm bin/console cache:warmup --env=prod --no-interaction
 
       - run:
+        name: yarn error
+        command: docker exec container_phpfpm yarn config set ignore-engines true
+
+      - run:
          name: yarn
-         command: docker exec container_phpfpm yarn config set ignore-engines true yarn install && yarn run encore production
+         command: docker exec container_phpfpm yarn install && yarn run encore production
 
       - run:
          name: run migrations
