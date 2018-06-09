@@ -30,7 +30,7 @@ jobs:
          command: docker cp ./symfony container_phpfpm:/var/www/
 
       - run:
-         name: run php container
+         name: install composer
          command: |
             docker exec container_phpfpm composer install -n --prefer-dist
 
