@@ -91,11 +91,11 @@ jobs:
          name: yarn
          command: docker exec container_phpfpm yarn install && yarn run encore production
 
-  workflows:
-    version: 2
-    build-and-deploy:
-      jobs:
-        - deploy
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - deploy
 
 
 
