@@ -40,7 +40,7 @@ jobs:
 
       - run:
          name: Run Test
-         command: ./bin/phpunit
+         command: docker exec container_phpfpm ./bin/phpunit
 
 
 
