@@ -28,7 +28,9 @@ jobs:
       - run:
          name: check git version
          command: git --version
-
+      - run:
+         name: install composer
+         command: RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 
       - run:

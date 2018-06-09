@@ -4,10 +4,8 @@ ARG TIMEZONE
 RUN apt-get update && apt-get install -y git unzip openssl procps acl
 
 # Install Composer
-RUN php -r "copy('https://raw.githubusercontent.com/composer/getcomposer.org/master/web/installer', 'composer-setup.php');" && \
-    php composer-setup.php && \
-    php -r "unlink('composer-setup.php');" && \
-    mv composer.phar /usr/local/bin/composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN composer --version
 
 # Set timezone
 RUN ln -snf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && echo ${TIMEZONE} > /etc/timezone
