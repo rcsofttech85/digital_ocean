@@ -1,6 +1,8 @@
 version: 2
 jobs:
   build:
+    environment:
+      BASH_ENV: "~/.bashrc"
     working_directory: /var/www/symfony
     docker:
       - image: docker:17.05.0-ce-git
