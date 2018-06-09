@@ -1,8 +1,6 @@
 version: 2
 jobs:
   build:
-    environment:
-      BASH_ENV: "~/.bashrc"
     working_directory: /var/www/symfony
     docker:
       - image: docker:17.05.0-ce-git
@@ -32,8 +30,8 @@ jobs:
          command: git --version
 
       - run:
-         name: composer install
-         command: composer install
+         name: run php container
+         command: docker exec -it container_phpfpm bash
 
 
 
