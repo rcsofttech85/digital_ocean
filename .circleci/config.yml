@@ -101,7 +101,7 @@ jobs:
 
       - run:
          name: run migrations
-         command: docker exec container_phpfpm DATABASE_URL=$DATABASE_URL bin/console doctrine:migrations:migrate --no-interaction
+         command: docker exec container_phpfpm -e DATABASE_URL=$DATABASE_URL bin/console doctrine:migrations:migrate --no-interaction
 
 
 
