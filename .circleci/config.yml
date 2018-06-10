@@ -42,13 +42,20 @@ jobs:
 
   deploy:
     working_directory: ~/temp
-    machine:
-      enabled: true
+    docker:
+      - image: docker:17.05.0-ce-git
     steps:
-
+      - checkout
+      - setup_remote_docker
    # docker_layer_caching: true
 
-
+      - run:
+          name: Install Docker Compose
+          command: |
+             apk add --no-cache \
+             py-pip=9.0.0-r1
+             pip install \
+             docker-compose==1.18.0
 
       - run:
          name: add droplet
@@ -56,8 +63,8 @@ jobs:
 
       - run:
          name: add env variable
-         command: ssh -T $DROPLET_USER@$DROPLET_IP < ./bin/deploy/pre_deploy.sh
-
+         command: ssh -T $DROPLET_USER@$DROPLET_IP < ./symfony/bin/deploy/pre_deploy.sh
+#
 #      - run:
 #          name: Run container
 #          command: |
