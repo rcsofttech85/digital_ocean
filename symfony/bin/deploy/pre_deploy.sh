@@ -9,3 +9,4 @@ docker exec container_phpfpm yarn config set ignore-engines true
 docker exec container_phpfpm yarn install
 docker exec container_phpfpm yarn run encore production
 docker exec -e DATABASE_URL=mysql://symfony:symfony@db:3306/symfony container_phpfpm bin/console doctrine:migrations:migrate --no-interaction
+
