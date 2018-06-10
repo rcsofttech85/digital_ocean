@@ -65,7 +65,7 @@ jobs:
          name: add env variable
          command: ssh -T $DROPLET_USER@$DROPLET_IP < ./symfony/bin/deploy/pre_deploy.sh
 
-     - run:
+      - run:
          name: install composer
          command: |
             docker exec container_phpfpm composer install -n --prefer-dist
