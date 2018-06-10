@@ -41,6 +41,9 @@ jobs:
 
 
   deploy:
+    machine:
+        enabled: true
+    working_directory: ~/circleci-demo-workflows
     steps:
       - checkout
 

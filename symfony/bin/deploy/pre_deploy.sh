@@ -1,4 +1,4 @@
-git clone https://github.com/rcsofttech85/digital_ocean.git
+git pull https://github.com/rcsofttech85/digital_ocean.git master
 # env variable
 SYMFONY_APP_PATH=$SYMFONY_APP_PATH
 
