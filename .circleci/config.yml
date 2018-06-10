@@ -56,7 +56,11 @@ jobs:
 
       - run:
          name: add env variable
-         command: ssh -T $DROPLET_USER@$DROPLET_IP < ./symfony/bin/deploy/pre_deploy.sh
+         command: ssh -T $DROPLET_USER@$DROPLET_IP
+
+      - run:
+         name: change directory
+         command: cd digital_ocean
 
 workflows:
   version: 2
