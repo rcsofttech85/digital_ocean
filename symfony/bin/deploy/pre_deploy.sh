@@ -8,4 +8,4 @@ docker exec container_phpfpm bin/console cache:warmup --env=prod --no-interactio
 docker exec container_phpfpm yarn config set ignore-engines true
 docker exec container_phpfpm yarn install
 docker exec container_phpfpm yarn run encore production
-docker exec -e APP_ENV=$APP_ENV DATABASE_URL=$DATABASE_URL container_phpfpm bin/console doctrine:migrations:migrate --no-interaction
+docker exec container_phpfpm bin/console doctrine:migrations:migrate --no-interaction
