@@ -49,13 +49,6 @@ jobs:
       - setup_remote_docker
    # docker_layer_caching: true
 
-      - run:
-          name: Install Docker Compose
-          command: |
-             apk add --no-cache \
-             py-pip=9.0.0-r1
-             pip install \
-             docker-compose==1.18.0
 
       - run:
          name: add droplet
