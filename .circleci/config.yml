@@ -64,49 +64,6 @@ jobs:
       - run:
          name: add env variable
          command: ssh -T $DROPLET_USER@$DROPLET_IP < ./symfony/bin/deploy/pre_deploy.sh
-#
-#      - run:
-#          name: Run container
-#          command: |
-#              docker-compose -f ./docker-compose.yml up -d --build
-#
-#      - run:
-#         name: mount volume
-#         command: docker cp ./symfony container_phpfpm:/var/www/
-#
-#      - run:
-#         name: install composer
-#         command: |
-#            docker exec container_phpfpm composer install -n --prefer-dist
-#
-#      - run:
-#         name: clear cache
-#         command: docker exec container_phpfpm bin/console cache:clear --env=prod --no-interaction
-#
-#      - run:
-#         name: warmup cache
-#         command: docker exec container_phpfpm bin/console cache:warmup --env=prod --no-interaction
-#
-#      - run:
-#         name: yarn error
-#         command: docker exec container_phpfpm yarn config set ignore-engines true
-#
-#      - run:
-#         name: yarn
-#         command: docker exec container_phpfpm yarn install
-#
-#      - run:
-#         name: run encore
-#         command: docker exec container_phpfpm yarn run encore production
-#
-#      - run:
-#         name: run migrations
-#         command: docker exec -e DATABASE_URL=$DATABASE_URL  container_phpfpm bin/console doctrine:migrations:migrate --no-interaction
-#
-#      - run:
-#         name: deploy code
-#         command: rsync -vzcrSLhp --delete ~/temp/ $DROPLET_USER@DROPLET_IP:/var/www/symfony
-#
 
 workflows:
   version: 2
