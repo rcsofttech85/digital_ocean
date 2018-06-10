@@ -2,8 +2,6 @@ version: '2'
 
 services:
     db:
-        env_file:
-          - .env
         container_name: container_mysql
         image: mysql:5.7
         volumes:
@@ -23,8 +21,6 @@ services:
         volumes:
           - "./volumes/redis:/data"
     php:
-        env_file:
-          - .env
         container_name: container_phpfpm
         build:
             context: php7-fpm
@@ -35,8 +31,6 @@ services:
         links:
             - redis
     nginx:
-        env_file:
-          - .env
         container_name: container_nginx
         build:
 
