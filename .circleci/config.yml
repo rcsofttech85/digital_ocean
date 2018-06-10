@@ -58,10 +58,6 @@ jobs:
          name: add env variable
          command: ssh -T $DROPLET_USER@$DROPLET_IP
 
-      - run:
-         name: change directory
-         command: cd digital_ocean
-
 workflows:
   version: 2
   build-and-deploy:
