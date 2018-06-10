@@ -1,6 +1,5 @@
 git pull origin master
 cd digital_ocean
-rm -rf .env
 docker-compose down
 docker-compose up -d --build
 docker exec container_phpfpm composer install -n --prefer-dist
@@ -11,3 +10,4 @@ docker exec container_phpfpm yarn install
 docker exec container_phpfpm yarn run encore production
 docker exec container_phpfpm bin/console doctrine:database:create
 docker exec -e APP_ENV=$APP_ENV DATABASE_URL=$DATABASE_URL container_phpfpm bin/console doctrine:migrations:migrate --no-interaction
+rm -rf .env
