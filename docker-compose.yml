@@ -43,6 +43,8 @@ services:
             context: nginx
             args:
                 MAX_EXECUTION_TIME: ${MAX_EXECUTION_TIME}
+                APP_ENV: ${APP_ENV}
+                DATABASE_URL: ${DATABASE_URL}
 
         ports:
             - "80:80"
