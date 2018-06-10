@@ -2,6 +2,7 @@ git pull origin master
 cd digital_ocean
 docker-compose down
 docker-compose up -d --build
+
 # env variable
 SYMFONY_APP_PATH=$SYMFONY_APP_PATH
 
